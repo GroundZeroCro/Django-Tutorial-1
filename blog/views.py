@@ -1,13 +1,33 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.http import HttpResponse
+from django.shortcuts import render
 
+posts = [
+    {
+        'author': 'Zero',
+        'title': 'Devv',
+        'content': 'Android code',
+        'date_posted': 'August 27, 2020.'
+    },
+    {
+        'author': 'Ground',
+        'title': 'Dev',
+        'content': 'Angular code',
+        'date_posted': 'August 21, 2020.'
+    },
+]
 
 # Create your views here.
 def home(request):
-    return HttpResponse('<h1>Blog Home</h1>')
+    context = {
+        'posts': posts
+    }
+    return render(request, 'blog/home.html', context)
 
 
 def about(request):
-    return HttpResponse('<h1>Blog About</h1>')
+    context = {
+        'title': 'About'
+    }
+    return render(request, 'blog/about.html', context)
