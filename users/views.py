@@ -11,7 +11,7 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
+            messages.success(request, f'Your account has been created. Please log in!')
             return redirect('blog-home')
         else:
             messages.error(request, f'Form is not valid!')
